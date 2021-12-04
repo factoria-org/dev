@@ -8,7 +8,10 @@ NO SERVER. NO CLOUD. JUST IPFS and ETHEREUM.
 
 And only use JavaScript to build your entire NFT collection web app.
 
->
+---
+
+# quickstart
+
 > **NOTE**
 >
 > ALL examples in this documentation use the testnet (Rinkeby).
@@ -17,9 +20,6 @@ And only use JavaScript to build your entire NFT collection web app.
 >
 > To try with your OWN collection, set up a testnet collection at https://testnet.factoria.app/f0
 
----
-
-# quickstart
 
 
 ## read collection info
