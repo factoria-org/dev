@@ -10,6 +10,13 @@ And only use JavaScript to build your entire NFT collection web app.
 
 ---
 
+# support
+
+- Join Discord and ask questions: https://discord.gg/BZtp5F6QQM
+- Follow on Twitter to get updates: https://twitter.com/skogard
+
+---
+
 # quickstart
 
 > **NOTE**
