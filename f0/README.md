@@ -12,6 +12,7 @@ And only use JavaScript to build your entire NFT collection web app.
 
 # support
 
+- Looking for user documentation? (not dev docs): https://docs.factoria.app/
 - Join Discord and ask questions: https://discord.gg/BZtp5F6QQM
 - Follow on Twitter to get updates: https://twitter.com/skogard
 
