@@ -82,26 +82,35 @@ body {
 .home {
   max-width: 800px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 100px 0;
   text-align: center;
-  color: rgba(0,0,0,0.8);
+  color: rgba(255,255,255,0.9);
+  /*
+  background: rgb(43, 55, 140);
+  */
+  background: rgba(0,0,0,0.9);
 }
 .home .item {
-  font-size: 30px;
+  font-size: 12px;
   font-weight: bold;
-  text-transform: uppercase;
-  color: white;
-  background: rgba(0,0,0,0.8);
+  /*
+  color: yellowgreen;
+  */
+  color: rgba(255,255,255,0.8);
   padding: 10px 20px;
+
+  /*
+  border: 1px solid rgba(255,255,255,0.8);
+  */
+  background: rgba(0,0,0,0.2);
   text-decoration: none;
-  border-radius: 5px;
-  line-height: 30px;
+  border-radius: 2px;
   display: inline-block;
 }
 .home #title i {
-  font-size: 200px;
+  font-size: 100px;
 }
 .home #title {
-  font-size: 60px;
-  letter-spacing: -5px;
+  font-size: 40px;
+  letter-spacing: -2px;
 }
