@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="freezeframe.min.js"></script>
+  <script src="token_abi.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const signature = (params) => {
+      if (params.length > 0) {
+        let sig = params.map((param) => {
+          if (param.components) {
+            let componentSig = param.components.map((component) => {
+              return `${component.type} ${component.name}`
+            }).join(', ')
+            //return `${param.internalType}(${componentSig}) ${param.name}`
+            return `{ ${componentSig} } ${param.name}`
+          } else {
+            return `${param.type} ${param.name}`
+          }
+        })
+        let sigStr = sig.join(',\n  ')
+        return {
+          str: `(\n  ${sigStr.trim()}\n)`,
+          sig: sig
+        }
+      } else {
+        return {
+          str: "()",
+          sig: []
+        }
+      }
+    }
+    window.$docsify = {
+      name: '',
+      repo: '',
+      maxLevel: 3,
+      themeColor: "cornflowerblue",
+      plugins: [
+        (hook) => {
+          hook.beforeEach((content) => {
+            content = content.replace("::abi", JSON.stringify(token_abi, null, 2))
+            return content
+          })
+        }
+      ]
+//      plugins: [
+//        (hook) => {
+//          hook.beforeEach((content) => {
+//            let res = token_abi.filter((item) => {
+//              return item.type === "function"
+//            }).map((item) => {
+//              let name = item.name
+//              let inputs = signature(item.inputs)
+//              let outputs = signature(item.outputs)
+//              return { name, inputs, outputs }
+//            })
+//
+//            let generated = res.map((r, i) => {
+//              //return `<h2>${r.name}</h2>`
+//              let code;
+//              if (r.outputs.sig.length === 0) {
+//                code = `${r.name}${r.inputs.str}`
+//              } else {
+//                code = `RETURN_VALUE = ${r.name}${r.inputs.str}`
+//              }
+//              let params = `<blockquote>none</blockquote>`
+//              if (r.inputs.sig.length > 0) {
+//                params = r.inputs.sig.map((s, k) => {
+//                  return `<blockquote>${k+1}. <code>${s}</code></blockquote>`
+//                }).join("")
+//                //params = `<ol>${params}</ol>`
+//              }
+//              let returnvalue = `<blockquote>none</blockquote>`
+//              if (r.outputs.sig.length > 0) {
+//                returnvalue = r.outputs.sig.map((s, k) => {
+//                  return `<blockquote>${k+1}. <code>${s}</code></blockquote>`
+//                }).join("")
+//                //returnvalue = `<ol>${returnvalue}</ol>`
+//              }
+//              let section = `<h2>${i}. ${r.name}</h2>
+//<pre>${code}</pre>
+//<h3>Parameters</h3>
+//${params}
+//<h3>Return value</h3>
+//${returnvalue}`
+//              return section
+//            }).join("")
+//            console.log("generated", generated)
+//
+//            content = content.replace("::abi", generated)
+//            return content
+//
+//          })
+//          hook.doneEach(() => {
+//            let i = document.querySelectorAll("img")
+//            console.log("i", i)
+//            new Freezeframe('img[src$=gif]', {
+//              overlay: true
+//            });
+//
+//          })
+//        }
+//      ]
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        let el = document.querySelector("#" + location.hash.split("=")[1])
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({top: y});
+        }
+      }, 1500)
+    })
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+</body>
+</html>
