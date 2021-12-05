@@ -108,9 +108,9 @@ body {
   display: inline-block;
 }
 .home #title i {
-  font-size: 100px;
+  font-size: 80px;
 }
 .home #title {
-  font-size: 40px;
-  letter-spacing: -2px;
+  font-size: 35px;
+  letter-spacing: -1px;
 }

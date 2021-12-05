@@ -380,6 +380,57 @@ For reference, the page should look like the following for any address that is o
 
 ---
 
+# integrating with factoria
+
+
+If you are building a tool that needs to communicate with factoria, you can do the following:
+
+1. Directly use web3 
+2. Open the browser
+
+## 1. uri scheme
+
+Because factoria doesn't have a server it does not keep state across multiple pages.
+
+In order to communicate between pages, factoria uses a uri scheme that utilizes the hash payload.
+
+For example if you open the page at:
+
+```
+https://testnet.factoria.app/contract/config#address=<contract_address>&base=<base_uri>
+```
+
+Factoria opens the contract configuration page for the `<contract_address>` and fills the `base` field with `<base_uri>`. This means YOU can also take advantage of this in your applications (web app or desktop app).
+
+The hash payload based URI scheme is as follows:
+
+```
+https://testnet.factoria.app/contract/config#<key1>=<val1>&<key2>=<val2>
+```
+
+Where the `key1`, `key2`, etc. can be one of the following:
+
+- **address**: `https://testnet.factoria.app/contract/config#address=<contract_address>`
+- **base**: `https://testnet.factoria.app/contract/config#base=<metadata_base_uri>`
+- **placeholder**: `https://testnet.factoria.app/contract/config#placeholder=<placeholder_metadata_uri>`
+- **supply**: `https://testnet.factoria.app/contract/config#supply=<total_supply>`
+
+If you have a web app that needs to update the **base** of a collection, you can use javascript like this:
+
+```javascript
+location.href = "https://testnet.factoria.app/contract/config#address=" + contract_address + "&base=" + new_base_uri
+```
+
+Or, if you're trying to automatically open the factoria config page, you can use libraries like https://github.com/sindresorhus/open to open the browser at your desired URL.
+
+## 2. use web3 directly
+
+while the factoria web app strives to provide the best interface for interacting with the factoria F0 contract, you do not need to use the web app all the time.
+
+you can build an app that interacts with factoria using web3 directly (or ethers.js)
+
+---
+
 # ABI
 
 <textarea>
