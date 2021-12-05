@@ -28,6 +28,10 @@ And only use JavaScript to build your entire NFT collection web app.
 >
 > To try with your OWN collection, set up a testnet collection at https://testnet.factoria.app/f0
 
+In this turorial, we will use the [web3.js](https://web3js.readthedocs.io/en/v1.5.2/) library to interact with Ethereum. However you can also use [Ethers.js](https://docs.ethers.io/v5/).
+
+- all the methods are documented [here](#methods)
+- the ABI is available [here](#abi)
 
 
 ## read collection info
