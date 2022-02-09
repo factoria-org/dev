@@ -942,7 +942,7 @@ event Invited(bytes32 indexed key, bytes32 indexed cid)
 #### web3
 
 ```javascript
-let logs = await collection.getPastInvites("Invited", {
+let logs = await collection.getPastEvents("Invited", {
   fromBlock: 0,
   toBlock  : "latest",
 })
@@ -961,7 +961,7 @@ event NSUpdated(string name, string symbol)
 #### web3
 
 ```javascript
-let logs = await collection.getPastInvites("NSUpdated", {
+let logs = await collection.getPastEvents("NSUpdated", {
   fromBlock: 0,
   toBlock  : "latest",
 })
@@ -988,7 +988,7 @@ event Configured(Config config)
 #### web3
 
 ```javascript
-let logs = await collection.getPastInvites("Configured", {
+let logs = await collection.getPastEvents("Configured", {
   fromBlock: 0,
   toBlock  : "latest",
 })
@@ -1012,7 +1012,7 @@ event WithdrawerUpdated(Withdrawer withdrawer)
 #### web3
 
 ```javascript
-let logs = await collection.getPastInvites("WithdrawerUpdated", {
+let logs = await collection.getPastEvents("WithdrawerUpdated", {
   fromBlock: 0,
   toBlock  : "latest",
 })
